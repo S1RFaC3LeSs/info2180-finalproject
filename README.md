@@ -1,5 +1,6 @@
 # Info2180-FinalProject
 
+## Our Group Members
 Giovanni Lawrence
 <br>
 Kimani Munn
