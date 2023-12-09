@@ -1,5 +1,5 @@
 -- Users Table
-CREATE TABLE Users (
+CREATE TABLE 'users' (
   Id INT AUTO_INCREMENT PRIMARY KEY,
   firstname VARCHAR(255) NOT NULL,
   lastname VARCHAR(255) NOT NULL,
@@ -9,12 +9,11 @@ CREATE TABLE Users (
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- Insert default user
-INSERT INTO Users (password_hash, email, role) 
-VALUES ('<hashed_password_here>', 'admin@project2.com', 'user');
+INSERT INTO users (firstname, lastname, password_hash, email, role) 
+VALUES ('Dynamic', 'WebDev', '<hashed_password_here>', 'admin@project2.com', 'user');
 
 -- Contacts Table
-CREATE TABLE Contacts (
+CREATE TABLE 'contacts' (
   id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(255),
   firstname VARCHAR(255) NOT NULL,
@@ -30,7 +29,7 @@ CREATE TABLE Contacts (
 );
 
 -- Notes Table
-CREATE TABLE Notes (
+CREATE TABLE 'notes' (
   id INT AUTO_INCREMENT PRIMARY KEY,
   contact_id INTEGER,
   comment TEXT,
