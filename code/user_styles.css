@@ -1,0 +1,156 @@
+header div{
+    display:flex;
+    height: 40px;
+    background-color: rgb(9, 5, 35);
+    align-items: center;
+    color:white;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+header div img{
+    margin:left;
+    height: 20px;
+    width:20px;
+    padding-left:0;
+    padding-right:0;
+}
+
+body div div a{
+    text-decoration: none;
+    color:black;
+}
+
+body {
+    
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    display: flex;
+    height: 40px;
+    align-items: center;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    justify-content: space-between;
+}
+
+.side-bar ul {
+     list-style: none;
+     padding: 10px;
+     margin-bottom: 10px;
+     grid-column: 1;
+     display:block;
+     
+}
+
+.side-bar ul li{
+    margin: 10px;
+}
+
+.side-bar img{
+    width: 20px;
+    height: 20px;
+    padding-left: 0px;
+    padding-right: 10px;
+}
+
+.main{
+    grid-column: 2;
+    background-color: 	#F5F5F5;
+    padding-bottom: 20px;
+    height: calc(100vh - 40px);
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.main h1{
+    margin-left: 50px;
+}
+
+.main-form{
+    margin-left: 50px;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 5px;
+    height: 210px;
+    width:1100px;
+}
+
+#roleSelector{
+    width:150px;
+    display:block;
+}
+
+#savebutton{
+    background-color: rgb(40, 40, 234);
+    float: right;
+    margin-top: 1%;
+    width: 50px;
+    border-color: rgb(40, 40, 234);
+    margin-left: 5px;
+    margin-right:10px;
+    border-radius: 3px;
+    color:white;
+}
+
+.textfield{
+    border-radius: 3px;
+    width: 250px;
+}
+
+.input {
+    display: block;
+    margin-bottom:5px;
+    
+
+}
+
+
+.firstname-container{
+    display: block;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.lastname-container{
+    display: block;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.name-container {
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.email-container{
+    display:inline-block;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.password-container{
+    display:inline-block;
+    margin-left: 18px;
+    margin-top: 10px;
+}
+
+.credentials-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.role{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+#savebutton{
+    margin-top: 15px;
+}

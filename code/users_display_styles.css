@@ -1,0 +1,141 @@
+header div{
+    display:flex;
+    height: 40px;
+    background-color: rgb(9, 5, 35);
+    align-items: center;
+    color:white;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+header div img{
+    margin:left;
+    height: 20px;
+    width:20px;
+    padding-left:0;
+    padding-right:0;
+}
+
+body div div a{
+    text-decoration: none;
+    color:black;
+}
+
+body {
+    
+    margin: 0;
+    padding: 0;
+} 
+
+h1{
+    display: flex;
+    height: 40px;
+    align-items: center;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    justify-content: space-between;
+}
+
+.side-bar ul {
+     list-style: none;
+     padding: 10px;
+     margin-bottom: 10px;
+     grid-column: 1;
+     display:block;
+     
+}
+
+.side-bar ul li{
+    margin: 10px;
+}
+
+.side-bar img{
+    width: 20px;
+    height: 20px;
+    padding-left: 0px;
+    padding-right: 10px;
+}
+
+.usersdisplay{
+    grid-column: 2;
+    background-color: 	#F5F5F5;
+    padding-bottom: 20px;
+    height: calc(100vh - 40px);
+
+    
+}
+
+#addUserButton{
+    color:white;
+    background-color: blue;
+    border:1px solid blue;
+    border-radius: 3px;
+    float: right;
+    margin-top: 20px;
+    margin-right: 50px;
+    width:100px;
+    height:30px;
+}
+
+#users{
+    border:1px solid white;
+    margin-left:50px;
+    
+}
+
+tr{  
+        position: relative; 
+    }
+
+table{
+    width: 90%;
+}
+
+#tableUser {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    height: 40px;
+    line-height: 20px;
+    border: none;
+    border-collapse: collapse;
+    white-space: nowrap;
+    text-align: center;
+}
+
+#users tr {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+#users th, #users td {
+    padding: 12px 15px;
+}
+
+#users th{
+    background-color: #F5F5F5;
+}
+
+#users tbody tr{
+    border-bottom: 1px solid #dddddd;
+    transition: 0.2s;
+}
+
+
+.divheader{
+    display:flex;
+    justify-content: space-between;
+}
+
+.divheader h1{
+    margin-left: 50px;
+}
+
