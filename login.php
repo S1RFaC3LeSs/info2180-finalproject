@@ -1,39 +1,76 @@
 <?php
 session_start();
 
-//Data elements
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = filter_var(htmlspecialchars($_POST['email']), FILTER_VALIDATE_EMAIL);
-    password = $_POST['password']
-    $host = 'localhost'
+// Database connection parameters
+$host = 'localhost'; // Database host
+$db = 'dolphin_crm'; // Database name
+$user = 'user'; // Database username
+$pass = 'password123'; // Database password
+$charset = 'utf8mb4';
 
-    if(!$email){
-        echo 'Email not valid!';
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES => false,
+];
+
+// Create PDO instance
+try {
+    $pdo = new PDO($dsn, $user, $pass, $options);
+} catch (\PDOException $e) {
+    die("Database connection error: " . $e->getMessage());
+}
+
+$errorMessage = '';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    $stmt = $pdo->prepare("SELECT * FROM Users WHERE email = ?");
+    $stmt->execute([$email]);
+    $user = $stmt->fetch();
+
+    if ($user && password_verify($password, $user['password'])) {
+        $_SESSION['user'] = $user;
+        header("Location: dashboard.php");
+        exit;
+    } else {
+        $errorMessage = 'Invalid credentials';
     }
-
-    if (!preg_match("/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/", $password)) {
-        echo 'Password must contain aleast one letter one number and be a minimum length of 8! <br/>';
-      }
-      $conn = new mysqli($host, "root", "", "dolphin_crm");
-      if($conn->connect_error){
-          die("Failed to connect:  ".$conn->connect_error);
-      }else{
-              
-              $data = $conn->query("SELECT * FROM users WHERE email='$email' AND password='$password'");
-      
-              if ($data->num_rows > 0) {
-                  $_SESSION["email"] = $email;
-                  $_SESSION["loggedIn"] = 1;
-                  
-                  header("Location: newuser.html");
-                  exit();
-      
-              } else {
-                  
-                  echo "<p> Invalid Email or Password </p>";
-              }
-          }
-    
-
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Login - Dolphin CRM</title>
+</head>
+<body>
+    <div class="login">
+        <nav class="nav-bar">
+            <img src="images/Dolphin.png" alt="Dolphin CRM">
+            <p>Dolphin CRM</p>
+        </nav>
+        <div class="login-box">
+            <h1>Login</h1>
+            <?php if ($errorMessage): ?>
+                <p class="error"><?php echo htmlspecialchars($errorMessage); ?></p>
+            <?php endif; ?>
+            <form action="login.php" method="post" id="loginForm">
+                <input type="email" name="email" placeholder="Email address" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <footer class="footer">
+            Copyright & Copyright 2022 Dolphin CRM
+        </footer>
+    </div>
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>
