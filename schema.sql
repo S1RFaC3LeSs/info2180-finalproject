@@ -64,4 +64,4 @@ ALTER TABLE `notes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 INSERT INTO users ('firstname', 'lastname', 'password_hash','email', 'role') 
-VALUES ('Admin', 'Purposes', '<hashed_password_here>', 'admin@project2.com', 'user');
+VALUES ('Admin', 'Purposes', '$2y$10$gjsO0Y6301wR9uRa1/bBSuTUh6HH2fgslC4j76/xSVVSXEt1sNC4K', 'admin@project2.com', 'user');
