@@ -3,8 +3,6 @@
 ## Our Group Members
 Giovanni Lawrence
 <br>
-Kimani Munn
-<br>
 Carville Monteith
 <br>
 Britney Patterson
